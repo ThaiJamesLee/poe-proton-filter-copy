@@ -13,9 +13,14 @@ if [ -d "$POE_DIR" ]; then
   unzip -d "$EXTRACT_DIR" $1
   cd "$EXTRACT_DIR"
   ls
+
+  echo "Clean old .filter files"
+  cd "$POE_DIR"
+  pwd
+  rm -r *.filter
   
   echo "Installing config files in ${POE_DIR}..."
-  cp -r "$EXTRACT_DIR/." "$POE_DIR"
+  cp -r "$EXTRACT_DIR/." .
 
   rm -rf "$EXTRACT_DIR"
 else
