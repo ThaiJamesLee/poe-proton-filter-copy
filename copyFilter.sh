@@ -8,6 +8,7 @@ if [ -d "$POE_DIR" ]; then
     echo "Error: $1 not found. Can not continue."
     exit 1
   fi
+
   echo "Unzip $1"
   mkdir "$EXTRACT_DIR"
   unzip -d "$EXTRACT_DIR" $1
@@ -22,6 +23,7 @@ if [ -d "$POE_DIR" ]; then
   echo "Installing config files in ${POE_DIR}..."
   cp -r "$EXTRACT_DIR/." .
 
+  # Clean tmp/
   rm -rf "$EXTRACT_DIR"
 else
   echo "Error: ${POE_DIR} not found. Can not continue."
